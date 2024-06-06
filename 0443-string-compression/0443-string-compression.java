@@ -13,11 +13,13 @@ class Solution {
             chars[index++] = chars[i];
             if (count > 1) 
             {
-                String countStr = Integer.toString(count);  
-                for (char c : countStr.toCharArray()) 
-                {
-                    chars[index++] = c;  
-                }
+                String countStr = Integer.toString(count);
+               char[] countChars = countStr.toCharArray();
+            for (int j = 0; j < countChars.length; j++) 
+            {
+                chars[index++] = countChars[j];
+            }
+
             }
         }
         

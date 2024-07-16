@@ -77,17 +77,33 @@ class Solution {
         return false;
     }
     public String getDirections(TreeNode root, int startValue, int destValue) {
-        TreeNode L = lca(root,startValue,destValue);
+        //TreeNode L = lca(root,startValue,destValue);
         StringBuilder StoL = new StringBuilder();
         StringBuilder LtoD = new StringBuilder();
-        findPath(L,startValue,StoL);
-        findPath(L,destValue,LtoD);
+        findPath(root,startValue,StoL);
+        findPath(root,destValue,LtoD);
+        int p1=0,p2=0;
+        while(p1<StoL.length() && p2<LtoD.length())
+        {
+            if(StoL.charAt(p1)==LtoD.charAt(p2))
+            {
+                p1++;
+                p2++;
+            }
+            else
+            {
+                break;
+            }
+        }
         StringBuilder res = new StringBuilder();
-        for(int i=0;i<StoL.length();i++)
+        for(int i=p1;i<StoL.length();i++)
         {
             res.append("U");
         }
-        res.append(LtoD);
+        for(int j=p2;j<LtoD.length();j++)
+        {
+            res.append(LtoD.charAt(j));
+        }
         return res.toString();
     }
 }

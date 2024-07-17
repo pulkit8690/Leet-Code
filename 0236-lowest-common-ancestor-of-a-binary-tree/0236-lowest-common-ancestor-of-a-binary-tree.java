@@ -9,39 +9,24 @@
  */
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        List<TreeNode> path1= new ArrayList<>();
-        List<TreeNode> path2= new ArrayList<>();
-        getPath(root,p.val,path1);
-        getPath(root,q.val,path2);
-        int i=0;
-        for(;i<path1.size() && i<path2.size();i++)
-        {
-            if(path1.get(i)!=path2.get(i))
-            {
-                break;
-            }
-        }
-        TreeNode lca = path1.get(i-1);
-        return lca;
+       return helper(root,p.val,q.val);
     }
-    public boolean getPath(TreeNode root, int n,List<TreeNode> path)
+    public TreeNode helper(TreeNode root,int p, int q)
     {
-        if(root==null)
-        {
-            return false;
-        }
-        path.add(root);
-        if(root.val==n)
-        {
-            return true;
-        }
-        boolean foundleft=getPath(root.left,n,path);
-        boolean foundright=getPath(root.right,n,path);
-        if(foundleft || foundright)
-        {
-            return true;
-        }
-        path.remove(path.size()-1);
-        return false;
+        if(root==null || root.val==p || root.val==q)
+		{
+		    return root;
+		}
+		TreeNode Left = helper(root.left,p,q);
+		TreeNode Right=helper(root.right,p,q);
+		if(Left==null)
+		{
+		    return Right;
+		}
+		if(Right==null)
+		{
+		    return Left;
+		}
+		return root;
     }
-}
+    }

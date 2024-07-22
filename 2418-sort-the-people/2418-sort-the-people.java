@@ -5,12 +5,13 @@ class Solution {
         {
             hm.put(heights[i],names[i]);
         }
-        Integer[] height = Arrays.stream(heights).boxed().toArray(Integer[]::new);
-        Arrays.sort(height,Collections.reverseOrder());
+        Arrays.sort(heights);
         String[] ans = new String[names.length];
-        for(int i=0;i<height.length;i++)
+        int idx=0;
+        for(int i=heights.length-1;i>=0;i--)
         {
-            ans[i]= hm.get(height[i]);
+            ans[idx]= hm.get(heights[i]);
+            idx++;
         }
         return ans;
     }

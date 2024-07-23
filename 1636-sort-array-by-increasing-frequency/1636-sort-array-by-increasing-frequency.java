@@ -5,10 +5,12 @@ class Solution {
         {
             map.put(nums[i],map.getOrDefault(nums[i],0)+1);
         }
-        Integer temp[]= new Integer[nums.length];
-        for(int i=0;i<nums.length;i++)
+        Integer temp[]= new Integer[map.size()];
+        int i=0;
+        for(Integer key : map.keySet())
         {
-            temp[i]=nums[i];
+            temp[i]= key;
+            i++;
         }
         Arrays.sort(temp, new Comparator<Integer>()
         {
@@ -22,9 +24,15 @@ class Solution {
            }
         });
         
-        for(int i=0;i<temp.length;i++)
+        i=0;
+        for(int key : temp)
         {
-            nums[i]=temp[i];
+            int f= map.get(key);
+            for(int j=0;j<f;j++)
+            {
+                nums[i]=key;
+                i++;
+            }
         }
         return nums;
     }

@@ -1,18 +1,18 @@
 class Solution {
-    public int[] sortJumbled(int[] mapping, int[] nums) {
+        public int[] sortJumbled(int[] mapping, int[] nums) {
         int n = nums.length;
-        Integer[] MappedNums = new Integer[n];
         Integer[] idx = new Integer[n];
+        int[] mappedNums = new int[n];
 
         for (int i = 0; i < n; i++) {
             idx[i] = i; // Save original index
-            MappedNums[i] = getMappedValue(nums[i], mapping);
+            mappedNums[i] = getMappedValue(nums[i], mapping);
         }
 
         Arrays.sort(idx, (a, b) -> {
-            int cmp = Integer.compare(MappedNums[a], MappedNums[b]);
+            int cmp = Integer.compare(mappedNums[a], mappedNums[b]);
             if (cmp == 0) {
-                return Integer.compare(a, b); 
+                return Integer.compare(a, b); // Maintain relative order
             }
             return cmp;
         });
@@ -41,15 +41,5 @@ class Solution {
         }
 
         return mappedValue;
-    }
-
-    public int reverse(int num) {
-        int reversed = 0;
-        while (num != 0) {
-            int digit = num % 10;
-            reversed = reversed * 10 + digit;
-            num /= 10;
-        }
-        return reversed;
     }
 }

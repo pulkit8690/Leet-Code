@@ -8,8 +8,7 @@ class Solution {
         int temp=x;
         while(x>0)
         {
-            int y = x%10;
-            ans=ans*10+y;
+            ans= ans*10+x%10;
             x=x/10;
         }
         return (temp==ans) ;

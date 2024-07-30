@@ -6,9 +6,10 @@ class Solution {
             map.put(arr[i],map.getOrDefault(arr[i],0)+1);
         }
         HashSet<Integer> set = new HashSet<>();
+        int num=0;
         for(Integer key : map.keySet())
         {
-            int num= map.get(key);
+            num= map.get(key);
             set.add(num);
         }
         return set.size()==map.size();

@@ -12,11 +12,12 @@ class Solution {
             ans.add(k%10);
             k=k/10;
         }
-        List<Integer> ans1= new ArrayList();
-        for(int i=ans.size()-1;i>=0;i--)
-        {
-            ans1.add(ans.get(i));
-        }
-        return ans1;
+        // List<Integer> ans1= new ArrayList();
+        // for(int i=ans.size()-1;i>=0;i--)
+        // {
+        //     ans1.add(ans.get(i));
+        // }
+        Collections.reverse(ans);
+        return ans;
     }
 }

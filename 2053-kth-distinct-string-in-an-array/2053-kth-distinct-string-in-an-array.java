@@ -6,7 +6,7 @@ class Solution {
             map.put(arr[i],map.getOrDefault(arr[i],0)+1);
         }
         int ans=0;
-        for(String key : map.keySet())
+        for(String key : arr)
         {
             if(map.get(key)==1)
             {

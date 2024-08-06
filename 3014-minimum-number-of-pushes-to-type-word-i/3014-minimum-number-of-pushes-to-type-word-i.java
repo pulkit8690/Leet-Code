@@ -1,6 +1,6 @@
 class Solution {
     public int minimumPushes(String word) {
-        int arr[]= {0,0,0,0,0,0,0,0,0,0};
+        HashMap<Integer,Integer> map= new HashMap<>();
         int res=0;
         int assign_key=2;
         for(char ch : word.toCharArray())
@@ -9,8 +9,8 @@ class Solution {
             {
                 assign_key=2;
             }
-            arr[assign_key]++;
-            res+=arr[assign_key];
+            map.put(assign_key,map.getOrDefault(assign_key,0)+1);
+            res+=map.get(assign_key);
             assign_key++;
         }
         return res;

@@ -15,22 +15,19 @@ class Solution {
             if(rank==1)
             {
                 ans[arr[n-i][0]]="Gold Medal";
-                rank++;
             }
             else if(rank==2)
             {
                 ans[arr[n-i][0]]="Silver Medal";
-                rank++;
             }
             else if(rank==3)
             {
                 ans[arr[n-i][0]]="Bronze Medal";
-                rank++;
             }
             else{
                 ans[arr[n-i][0]]=Integer.toString(rank);
-                rank++;
             }
+            rank++;
         }
         return ans;
         

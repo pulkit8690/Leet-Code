@@ -1,6 +1,6 @@
 class Solution {
     public int fib(int n) {
-        // Using 
+        // Using Tabulation
         if(n==0) return 0;
         int dp[]= new int[n+1];
         dp[0]=0;

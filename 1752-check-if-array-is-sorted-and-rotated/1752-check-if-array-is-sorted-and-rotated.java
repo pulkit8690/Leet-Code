@@ -5,14 +5,14 @@ class Solution {
         for(int i=0;i<nums.length;i++)
         {
            if(nums[i] > nums[(i + 1) % n])
-                             {
-                                 cnt++;
-                             }
+            {
+                cnt++;
+            }
         }
-                             if(cnt>1)
-                             {
-                                 return false;
-                             }
-                             return true;
+        if(cnt>1)
+        {
+            return false;
+        }
+    return true;
     }
 }
